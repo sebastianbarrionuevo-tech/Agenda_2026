@@ -21,7 +21,9 @@ class ExcelManager:
     
     def create_template(self, filename: str = "templates/agenda_template.xlsx"):
         """Create an Excel template for the agenda"""
-        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        file_dir = os.path.dirname(filename)
+        if file_dir:
+            os.makedirs(file_dir, exist_ok=True)
         
         wb = openpyxl.Workbook()
         
@@ -129,7 +131,9 @@ class ExcelManager:
     
     def export_to_excel(self, filename: str = "data/agenda_export.xlsx"):
         """Export all data from database to Excel"""
-        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        file_dir = os.path.dirname(filename)
+        if file_dir:
+            os.makedirs(file_dir, exist_ok=True)
         
         wb = openpyxl.Workbook()
         
@@ -222,7 +226,7 @@ class ExcelManager:
         for row in ws.iter_rows(min_row=2, values_only=True):
             if row[1]:  # If nombre is not empty
                 contact_id = row[0]
-                if contact_id:
+                if contact_id is not None and contact_id != '':
                     # Update existing contact
                     self.db.update_contact(
                         contact_id,
@@ -249,7 +253,7 @@ class ExcelManager:
         for row in ws.iter_rows(min_row=2, values_only=True):
             if row[1] and row[3]:  # If titulo and fecha_inicio are not empty
                 event_id = row[0]
-                if not event_id:
+                if event_id is None or event_id == '':
                     # Add new event
                     self.db.add_event(
                         titulo=row[1],
@@ -266,7 +270,7 @@ class ExcelManager:
         for row in ws.iter_rows(min_row=2, values_only=True):
             if row[1]:  # If titulo is not empty
                 task_id = row[0]
-                if not task_id:
+                if task_id is None or task_id == '':
                     # Add new task
                     self.db.add_task(
                         titulo=row[1],

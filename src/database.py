@@ -15,7 +15,9 @@ class AgendaDatabase:
     def __init__(self, db_path: str = "data/agenda.db"):
         """Initialize database connection"""
         self.db_path = db_path
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+        db_dir = os.path.dirname(db_path)
+        if db_dir:
+            os.makedirs(db_dir, exist_ok=True)
         self.conn = None
         self.create_tables()
     
