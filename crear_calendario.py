@@ -21,7 +21,6 @@ def crear_calendario_2026():
     # Configuración de colores y estilos
     color_encabezado = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
     color_fin_semana = PatternFill(start_color="E7E6E6", end_color="E7E6E6", fill_type="solid")
-    color_dia_actual = PatternFill(start_color="FFC000", end_color="FFC000", fill_type="solid")
     
     fuente_encabezado = Font(bold=True, size=12, color="FFFFFF")
     fuente_titulo = Font(bold=True, size=14)

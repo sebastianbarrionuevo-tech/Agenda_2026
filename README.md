@@ -31,12 +31,25 @@ pip install -r requirements.txt
 
 ## Uso
 
+### Opción 1: Script básico
 Ejecuta el script para generar el calendario:
 ```bash
 python crear_calendario.py
 ```
 
 Esto creará un archivo llamado `Calendario_2026.xlsx` en el directorio actual.
+
+### Opción 2: Script interactivo con ejemplos
+Para usar el script con más opciones:
+```bash
+python ejemplo_uso.py
+```
+
+Este script te permite:
+- Generar el calendario básico
+- Generar un calendario con eventos personalizados de ejemplo
+- Ver información detallada del año 2026
+- Ejecutar todas las opciones anteriores
 
 ## Estructura del Calendario
 - **12 hojas**: Una por cada mes del año
