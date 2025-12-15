@@ -1,2 +1,2 @@
 # Agenda_2026
-Realizar una Agenda Personalizada
+Se quiere realizar una AGENDA para profesores con el fin educativo.
